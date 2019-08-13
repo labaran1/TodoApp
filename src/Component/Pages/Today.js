@@ -35,6 +35,32 @@ addTodo = (title)=>{
 
 }
 
+markComplete = (id)=> {
+    this.setState({Daily: this.state.Daily.map(daily =>{
+
+        if (daily.id === id) {
+            daily.completed = !daily.completed
+        }
+        return daily;
+    })
+    })
+
+
+
+
+
+
+
+
+
+
+    }
+        
+        
+        
+   
+
+
 
 
 render(){
@@ -43,7 +69,7 @@ return (
 
     <React.Fragment>
             <AddTodo addTodo={this.addTodo} />
-            <Todos  daily={this.state.Daily}/>
+            <Todos  daily={this.state.Daily} markComplete={this.markComplete}/>
 
         </React.Fragment>
 

@@ -8,8 +8,8 @@ getStyle = ()=> {
         background: '#f4f4f4',
         padding: '10px',
         border: ' 1px dotted #ccc',
-        // textDecoration: this.props.todo.completed ?
-        //     'line-through' : 'none'
+        textDecoration: this.props.daily.completed ?
+            'line-through' : 'none'
 
 }
 }
@@ -30,7 +30,7 @@ const {id, title} = this.props.daily;
 
 <p>
 
-<input type="checkbox"/>{ ' '}
+<input type="checkbox" onChange={this.props.markComplete.bind(this,id)}/>{ ' '}
 { title}
 
 <button  style={btnStyle}>X</button>

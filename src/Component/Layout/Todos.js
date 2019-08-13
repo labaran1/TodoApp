@@ -18,7 +18,7 @@ import TodoItem from '../Layout/TodoItem';
     render() {
         return this.props.daily.map((daily)=>(
 
-<TodoItem  daily={daily}/>
+<TodoItem  daily={daily} markComplete = {this.props.markComplete}/>
 
         ))
     }
