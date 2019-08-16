@@ -6,7 +6,7 @@ import Today from './Component/Pages/Today';
 import Week from './Component/Pages/Week';
 import Month from './Component/Pages/Month';
 import Showcase from './Component/Layout/Showcase';
-import AddTodo from './Component/Layout/AddTodo';
+
 
 class App extends Component {
 

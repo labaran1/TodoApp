@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 
 getStyle = ()=> {
 
+    if(this.props.loc==='/today') {
     return {
         background: '#f4f4f4',
         padding: '10px',
@@ -11,7 +12,29 @@ getStyle = ()=> {
         textDecoration: this.props.daily.completed ?
             'line-through' : 'none'
 
-}
+    }
+    } else if(this.props.loc==='/week'){
+        return {
+            background: '#f4f4f4',
+            padding: '10px',
+            border: ' 1px dotted #ccc',
+            textDecoration: this.props.weekly.completed ?
+                'line-through' : 'none'
+
+        }
+
+    } else{
+
+        return {
+            background: '#f4f4f4',
+            padding: '10px',
+            border: ' 1px dotted #ccc',
+            textDecoration: this.props.monthly.completed ?
+                'line-through' : 'none'
+
+        }
+
+    }
 }
 
 
@@ -24,16 +47,18 @@ getStyle = ()=> {
  
 
 
-const {id, title} = this.props.daily;
+// const {id, title} = this.props.daily;
+
+if(this.props.loc==='/today'){
         return(
 <div style={this.getStyle()}>
 
 <p>
 
-<input type="checkbox" onChange={this.props.markComplete.bind(this,id)}/>{ ' '}
-{ title}
+<input type="checkbox" onChange={this.props.markComplete.bind(this,this.props.daily.id)}/>{ ' '}
+{ this.props.daily.title}
 
-<button  style={btnStyle}>X</button>
+<button  style={btnStyle} onClick={this.props.delTodo.bind(this, this.props.daily.id)}>X</button>
 
 
 </p>
@@ -43,6 +68,50 @@ const {id, title} = this.props.daily;
 
 
         )
+} else if(this.props.loc==='/week'){
+
+    return (
+        <div style={this.getStyle()}>
+
+            <p>
+
+                <input type="checkbox" onChange={this.props.markComplete.bind(this, this.props.weekly.id)} />{' '}
+                {this.props.weekly.title}
+
+                <button style={btnStyle} onClick={this.props.delTodo.bind(this, this.props.weekly.id)}>X</button>
+
+
+            </p>
+
+
+        </div>
+
+
+    )
+
+}else{
+    return (
+        <div style={this.getStyle()}>
+
+            <p>
+
+                <input type="checkbox" onChange={this.props.markComplete.bind(this, this.props.monthly.id)} />{' '}
+                {this.props.monthly.title}
+
+                <button style={btnStyle} onClick={this.props.delTodo.bind(this, this.props.monthly.id)}>X</button>
+
+
+            </p>
+
+
+        </div>
+
+
+    )
+
+
+
+}
 
       
     }

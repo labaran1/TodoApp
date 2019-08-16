@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
  class AddTodo extends Component {
 state = {
@@ -15,6 +15,9 @@ onSubmit = (e)=>{
 
 
      onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+
+
+    
 
 
     render() {
@@ -35,6 +38,7 @@ onChange={this.onChange}
                     value="Add"
                     className="btn"
                     style={{ flex: '1' }}
+                   
                   
                 />
 </form>
